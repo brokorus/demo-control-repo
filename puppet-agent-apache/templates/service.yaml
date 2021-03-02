@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "puppet-agent-apache.fullname" . }}
+  labels:
+    {{- include "puppet-agent-apache.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "puppet-agent-apache.selectorLabels" . | nindent 4 }}
