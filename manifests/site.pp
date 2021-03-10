@@ -28,3 +28,7 @@ File { backup => false }
 node /^apache\d+/ {
   include role::webserver
 }
+
+node default {
+  include role::webserver
+}
