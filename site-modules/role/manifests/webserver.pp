@@ -1,5 +1,3 @@
 class role::webserver {
-
-  include profile::apache
-
+  include profile::k8-apache
 }
